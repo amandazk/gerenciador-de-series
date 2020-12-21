@@ -9,9 +9,12 @@ class SeriesController extends Controller
 {
     public function index(Request $request)
     {
-        $series = Serie::query()->orderBy('nome')->get();
+        $series = Serie::query()
+            ->orderBy('nome')
+            ->get();
+        $mensagem = $request->session()->get('mensagem');
 
-        return view('series.index', compact('series'));
+        return view('series.index', compact('series', 'mensagem'));
     }
 
     public function create()
@@ -24,6 +27,11 @@ class SeriesController extends Controller
         // $nome = $request->get('nome');
         // $nome = $request->nome;  o laravel já busca com o método __get
         $serie = Serie::create($request->all());
+        $request->session()
+            ->flash( // uma mensagem que dura somente uma sessão
+                'mensagem', 
+                "Série {$serie->id} criada com sucesso {$serie->nome}"
+            );
 
         return redirect('/series');
     }
