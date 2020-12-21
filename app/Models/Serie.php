@@ -10,4 +10,5 @@ class Serie extends Model
     // por padrao, o laravel pega o nome da classe, coloca em minúsculo e no plural
     // entao, nem precisaria informar o nome da tabela, nesse caso
     public $timestamps = false;
+    protected $fillable = ['nome'];
 }

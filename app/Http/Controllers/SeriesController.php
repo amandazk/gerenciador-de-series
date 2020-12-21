@@ -9,12 +9,7 @@ class SeriesController extends Controller
 {
     public function index(Request $request)
     {
-        $series = [
-            'Dexter',
-            'House md',
-            'Lost',
-            'The Mandalorian'
-        ];
+        $series = Serie::all();
 
         return view('series.index', compact('series'));
     }
@@ -27,9 +22,9 @@ class SeriesController extends Controller
     public function store(Request $request)
     {   // esse nome que o request pega, é o name lá do formulário de create
         // $nome = $request->get('nome');
-        $nome = $request->nome; // o laravel já busca com o método __get
-        $serie = new Serie();
-        $serie->nome = $nome;
-        var_dump($serie->save());
+        // $nome = $request->nome;  o laravel já busca com o método __get
+        $serie = Serie::create($request->all());
+
+        echo "Série com id {$serie->id} criada: {$serie->nome}";
     }
 }
