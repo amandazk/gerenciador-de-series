@@ -11,4 +11,10 @@ class Serie extends Model
     // entao, nem precisaria informar o nome da tabela, nesse caso
     public $timestamps = false;
     protected $fillable = ['nome'];
+
+    // as relações entre tabelas no laravel são feitas através de métodos
+    public function temporadas()
+    {
+        return $this->hasMany(Temporada::class); // uma série tem muitas temporadas
+    }
 }
