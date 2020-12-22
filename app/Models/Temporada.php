@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Temporada extends Model
 {
+    public $timestamps = false;
+    protected $fillable = ['numero'];
+
     public function episodios()
     {
-        return $this->hasMany(Episodio::class); // temporada tem muitos episódios
+        return $this->hasMany(Episodio::class);
     }
 
-    public function serie() // no singular, pois a temporada pertence a UMA série
+    public function serie()
     {
         return $this->belongsTo(Serie::class);
     }

@@ -17,7 +17,10 @@ class CreateEpisodiosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('numero');
             $table->integer('temporada_id');
-            $table->foreign('temporada_id')->references('id')->on('temporada');
+    
+            $table->foreign('temporada_id')
+                ->references('id')
+                ->on('temporadas');
         });
         // o references é o id lá de temporada, o increments
     }
