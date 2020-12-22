@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Serie;
 
@@ -22,16 +23,13 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request)
     {   // esse nome que o request pega, é o name lá do formulário de create
         // $nome = $request->get('nome');
         // $nome = $request->nome;  o laravel já busca com o método __get
-        $request->validate([
-            'nome' => 'required| min:2'
-        ],
-        // [
-        //     'nome.required' => 'Esse campo é obrigatório',]
-        );
+        // $request->validate([ // está no SeriesFormRquest
+        //     'nome' => 'required| min:2'
+        // ]);
         $serie = Serie::create($request->all());
         $request->session()
             ->flash( // uma mensagem que dura somente uma sessão
