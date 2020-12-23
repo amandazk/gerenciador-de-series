@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SeriesFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Serie;
+use App\Services\CriadorDeSerie;
 
 class SeriesController extends Controller
 {
@@ -23,22 +24,19 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store(SeriesFormRequest $request)
+    public function store(SeriesFormRequest $request, CriadorDeSerie $criadorDeSerie)
     {   // esse nome que o request pega, é o name lá do formulário de create
         // $nome = $request->get('nome');
         // $nome = $request->nome;  o laravel já busca com o método __get
         // $request->validate([ // está no SeriesFormRquest
         //     'nome' => 'required| min:2'
         // ]);
-        $serie = Serie::create(['nome' => $request->nome]);
-        $qtdTemporadas = $request->qtd_temporadas;
-        for ($i = 1; $i <= $qtdTemporadas; $i++) {
-            $temporada = $serie->temporadas()->create(['numero' => $i]);
+        $serie = $criadorDeSerie->criarSerie(
+            $request->nome,
+            $request->qtd_temporadas,
+            $request->ep_por_temporada
+        ); 
 
-            for ($j = 1; $j <= $request->ep_por_temporada; $j++) {
-                $temporada->episodios()->create(['numero' => $j]);
-            }
-        }
         $request->session()
             ->flash(
                 'mensagem',
