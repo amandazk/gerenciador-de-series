@@ -23,7 +23,7 @@ class RemovedorDeSerie
         return $nomeSerie;
     }
       
-    public function removerTemporadas(Serie $serie): void
+    private function removerTemporadas(Serie $serie): void
     {
         // each() -> para cada uma dessas temporadas, ele vai executar
         // uma função, passando como parãmetro, a temporada
@@ -34,7 +34,7 @@ class RemovedorDeSerie
         });
     }
 
-    public function removerEpisodios(Temporada $temporada): void
+    private function removerEpisodios(Temporada $temporada): void
     {
         $temporada->episodios()->each(function (Episodio $episodio) {
             $episodio->delete();
