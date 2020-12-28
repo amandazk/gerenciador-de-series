@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SeriesController;
-use App\Http\Controllers\TemporadasController;
+use App\Http\Controllers\{SeriesController, TemporadasController, EpisodiosController};
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +25,4 @@ Route::post('/series/{id}/editaNome', [SeriesController::class, 'editaNome']);
 
 // Temporadas
 Route::get('/series/{serieId}/temporadas', [TemporadasController::class, 'index']);
+Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index']);
