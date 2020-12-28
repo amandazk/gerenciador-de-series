@@ -6,11 +6,9 @@
 @endsection
 
 @section('conteudo')
-    @if (!empty($mensagem))
-        <div class="alert alert-success">
-            {{ $mensagem }}
-        </div>
-    @endif
+
+{{-- inclui um arquivo de view do blade --}}
+@include('mensagem', ['mensagem' => $mensagem]) 
 
     <a href="{{ route('form_criar_serie') }}" class="btn btn-dark mb-2">Adicionar</a>
 

@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class EpisodiosController extends Controller
 {
-    public function index(Temporada $temporada) // pra não precisar usar o método find
+    public function index(Temporada $temporada, Request $request) // pra não precisar usar o método find
     {   
         $episodios = $temporada->episodios;
         $temporadaId = $temporada->id;
+        $mensagem = $request->session()->get('mensagem');
 
-        return view('episodios.index', compact('episodios', 'temporadaId'));
+        return view('episodios.index', 
+            compact('episodios', 'temporadaId', 'mensagem'));
     }
 
     public function assistir(Temporada $temporada, Request $request)
@@ -27,6 +29,9 @@ class EpisodiosController extends Controller
             );
         });
         $temporada->push(); // envia todas as alterações
+        $request->session()->flash('mensagem', 'Episódios marcados como assistidos');
+
+        return redirect()->back(); // redireciona o usuário pra última página visitada
     }
 
 }
