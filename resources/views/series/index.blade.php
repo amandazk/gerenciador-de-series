@@ -9,6 +9,7 @@
 
 {{-- inclui um arquivo de view do blade --}}
 @include('mensagem', ['mensagem' => $mensagem]) 
+{{-- mandando a variavel mensagem (da subview mensagem.blade.php) com o valor $mensagem --}}
 
     <a href="{{ route('form_criar_serie') }}" class="btn btn-dark mb-2">Adicionar</a>
 
