@@ -10,6 +10,12 @@ use App\Services\RemovedorDeSerie;
 
 class SeriesController extends Controller
 {
+
+    public function __construct()
+    {   
+        $this->middleware('auth'); // terá que estar logado para acessar as séries
+    }
+
     public function index(Request $request)
     {
         $series = Serie::query()

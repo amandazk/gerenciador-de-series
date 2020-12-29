@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{SeriesController, TemporadasController, EpisodiosController};
+use App\Http\Controllers\{SeriesController, TemporadasController, EpisodiosController, LoginController};
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +20,14 @@ Route::get('/series', [SeriesController::class, 'index'])
 Route::get('/series/criar', [SeriesController::class, 'create'])
     ->name('form_criar_serie');
 Route::post('/series/criar', [SeriesController::class, 'store']);
-Route::delete('/series/{id}', [SeriesController::class, 'destroy']); 
+Route::delete('/series/{id}', [SeriesController::class, 'destroy']);
 Route::post('/series/{id}/editaNome', [SeriesController::class, 'editaNome']);
 
 // Temporadas
 Route::get('/series/{serieId}/temporadas', [TemporadasController::class, 'index']);
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index']);
 Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir']);
+
+// Login
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
