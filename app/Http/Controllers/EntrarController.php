@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class EntrarController extends Controller
 {
     public function index()
     {
-        return view('login.index');
+        return view('entrar.index');
     }
 
-    public function login(Request $request)
+    public function entrar(Request $request)
     {
         // realizar login: salva na sessão esses dados
         // vai tentar encontrar no banco de dados, um usuário com esse email e senha

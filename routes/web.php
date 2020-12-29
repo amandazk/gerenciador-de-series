@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{SeriesController, TemporadasController, EpisodiosController, LoginController};
+use App\Http\Controllers\{SeriesController, TemporadasController, EpisodiosController, EntrarController, RegistroController};
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +29,10 @@ Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'in
 Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir']);
 
 // Login
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('/entrar', [EntrarController::class, 'index']);
+Route::post('/entrar', [EntrarController::class, 'entrar']);
+
+// Cadastro
+Route::get('/registrar', [RegistroController::class, 'create']);
+Route::post('/registrar', [RegistroController::class, 'store']);
+
