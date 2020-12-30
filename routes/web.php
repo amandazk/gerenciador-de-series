@@ -20,22 +20,22 @@ Route::get('/series', [SeriesController::class, 'index'])
 
 Route::get('/series/criar', [SeriesController::class, 'create'])
     ->name('form_criar_serie')
-    ->middleware('auth');
+    ->middleware('autenticador');
 
 Route::post('/series/criar', [SeriesController::class, 'store'])
-    ->middleware('auth');
+    ->middleware('autenticador');
 
 Route::delete('/series/{id}', [SeriesController::class, 'destroy'])
-    ->middleware('auth');
+    ->middleware('autenticador');
 
 Route::post('/series/{id}/editaNome', [SeriesController::class, 'editaNome'])
-    ->middleware('auth');
+    ->middleware('autenticador');
 
 // Temporadas
 Route::get('/series/{serieId}/temporadas', [TemporadasController::class, 'index']);
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index']);
 Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir'])
-    ->middleware('auth');
+    ->middleware('autenticador');
 
 // Login
 Route::get('/entrar', [EntrarController::class, 'index'])->name('entrar');
