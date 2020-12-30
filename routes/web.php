@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\{Route, Auth};
 use App\Http\Controllers\{SeriesController, TemporadasController, EpisodiosController, EntrarController, RegistroController};
 
 /*
@@ -35,4 +35,10 @@ Route::post('/entrar', [EntrarController::class, 'entrar']);
 // Cadastro
 Route::get('/registrar', [RegistroController::class, 'create']);
 Route::post('/registrar', [RegistroController::class, 'store']);
+
+// Logout
+Route::get('/sair', function () {
+    Auth::logout();
+    return redirect('entrar');
+});
 
