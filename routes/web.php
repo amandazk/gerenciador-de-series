@@ -29,7 +29,7 @@ Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'in
 Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir']);
 
 // Login
-Route::get('/entrar', [EntrarController::class, 'index']);
+Route::get('/entrar', [EntrarController::class, 'index'])->name('entrar');
 Route::post('/entrar', [EntrarController::class, 'entrar']);
 
 // Cadastro
