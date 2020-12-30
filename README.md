@@ -23,10 +23,10 @@
 
 Gerenciador pessoal de séries de TV, onde o usuário cadastra as séries que acompanha, assim como as suas temporadas e episódios. É possível marcar os episódios como assistidos. 
 
-Na aba Séries:
+Na aba Séries (/series):
  - O usuário é redirecionado para a listagem de séries. Se estiver logado, poderá fazer as alterações, como excluir, editar o nome da série e marcar episódios como assistidos.
    
-Na aba Entrar:
+Na aba Entrar (/entrar):
  - O usuário é redirecionado para o formulário de login. Se ainda não for cadastrado, poderá criar um novo usuário.
 
 
