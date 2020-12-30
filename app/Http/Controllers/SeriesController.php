@@ -11,10 +11,11 @@ use App\Services\RemovedorDeSerie;
 class SeriesController extends Controller
 {
 
-    public function __construct()
-    {   
-        $this->middleware('auth'); // terá que estar logado para acessar as séries
-    }
+    // public function __construct()
+    // {   
+            // terá que estar logado para acessar as séries
+    //     $this->middleware('auth'); 
+    // }
 
     public function index(Request $request)
     {

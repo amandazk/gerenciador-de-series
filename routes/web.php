@@ -17,16 +17,25 @@ use App\Http\Controllers\{SeriesController, TemporadasController, EpisodiosContr
 // Series
 Route::get('/series', [SeriesController::class, 'index'])
     ->name('listar_series');
+
 Route::get('/series/criar', [SeriesController::class, 'create'])
-    ->name('form_criar_serie');
-Route::post('/series/criar', [SeriesController::class, 'store']);
-Route::delete('/series/{id}', [SeriesController::class, 'destroy']);
-Route::post('/series/{id}/editaNome', [SeriesController::class, 'editaNome']);
+    ->name('form_criar_serie')
+    ->middleware('auth');
+
+Route::post('/series/criar', [SeriesController::class, 'store'])
+    ->middleware('auth');
+
+Route::delete('/series/{id}', [SeriesController::class, 'destroy'])
+    ->middleware('auth');
+
+Route::post('/series/{id}/editaNome', [SeriesController::class, 'editaNome'])
+    ->middleware('auth');
 
 // Temporadas
 Route::get('/series/{serieId}/temporadas', [TemporadasController::class, 'index']);
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index']);
-Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir']);
+Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir'])
+    ->middleware('auth');
 
 // Login
 Route::get('/entrar', [EntrarController::class, 'index'])->name('entrar');
@@ -41,4 +50,3 @@ Route::get('/sair', function () {
     Auth::logout();
     return redirect('entrar');
 });
-
