@@ -60,7 +60,7 @@ Projeto desenvolvido no curso do framework Laravel, da plataforma Alura.
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [PHP][nodejs]
+- [PHP][PHP]
 - [Laravel][laravel]
 - [CSS][CSS]
 - [HTML][HTML]
