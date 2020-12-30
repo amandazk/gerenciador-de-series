@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between"> <a
+    <nav class="navbar navbar-expand-lg navbar-light mb-4 d-flex justify-content-between" style="background-color: #e9ecef;"> <a
             class="navbar navbar-expand-lg" href="{{ route('listar_series') }}">Séries</a>
         {{-- verifica se está logado --}}
         @auth
