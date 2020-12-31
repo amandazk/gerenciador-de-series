@@ -12,7 +12,7 @@ class TemporadaTest extends TestCase
     /** @var Temporada */
     private $temporada;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $temporada = new Temporada();
