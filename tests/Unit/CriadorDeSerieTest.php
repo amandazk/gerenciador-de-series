@@ -5,9 +5,12 @@ namespace Tests\Unit;
 use App\Models\Serie;
 use App\Services\CriadorDeSerie;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\{RefreshDatabase, WithFaker};
 
 class CriadorDeSerieTest extends TestCase
 {
+    use RefreshDatabase; // para usar o banco de dados em memória
+
     public function testCriarSerie()
     {
         $criadorDeSerie = new CriadorDeSerie();
