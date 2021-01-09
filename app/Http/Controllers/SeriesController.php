@@ -10,13 +10,6 @@ use App\Services\RemovedorDeSerie;
 
 class SeriesController extends Controller
 {
-
-    // public function __construct()
-    // {   
-            // terá que estar logado para acessar as séries
-    //     $this->middleware('auth'); 
-    // }
-
     public function index(Request $request)
     {
         $series = Serie::query()
@@ -33,17 +26,18 @@ class SeriesController extends Controller
     }
 
     public function store(SeriesFormRequest $request, CriadorDeSerie $criadorDeSerie)
-    {   // esse nome que o request pega, é o name lá do formulário de create
-        // $nome = $request->get('nome');
-        // $nome = $request->nome;  o laravel já busca com o método __get
-        // $request->validate([ // está no SeriesFormRquest
-        //     'nome' => 'required| min:2'
-        // ]);
+    {
+        // por padrão a imagem vem com nula
+        $capa = null;
+        if($request->hasFile('capa')){ // se tiver uma capa no upload
+            $capa = $request->file('capa')->store('serie');
+        }
+        
         $serie = $criadorDeSerie->criarSerie(
             $request->nome,
             $request->qtd_temporadas,
             $request->ep_por_temporada,
-            $request->capa,
+            $capa,
         );
 
         $request->session()
