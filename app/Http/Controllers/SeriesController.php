@@ -42,7 +42,8 @@ class SeriesController extends Controller
         $serie = $criadorDeSerie->criarSerie(
             $request->nome,
             $request->qtd_temporadas,
-            $request->ep_por_temporada
+            $request->ep_por_temporada,
+            $request->capa,
         );
 
         $request->session()
