@@ -24,7 +24,9 @@
 Gerenciador pessoal de séries de TV, onde o usuário cadastra as séries que acompanha, assim como as suas temporadas e episódios. É possível marcar os episódios como assistidos. 
 
 Na aba Séries (/series):
- - O usuário é redirecionado para a listagem de séries. Se estiver logado, poderá fazer as alterações, como excluir, editar o nome da série e marcar episódios como assistidos.
+ - O usuário é redirecionado para a listagem de séries. 
+ - Se estiver logado, poderá fazer as alterações, como excluir, editar o nome da série e marcar episódios como assistidos.
+ - Se não estiver logado, poderá somente fazer a visualização das séries cadastradas.
    
 Na aba Entrar (/entrar):
  - O usuário é redirecionado para o formulário de login. Se ainda não for cadastrado, poderá criar um novo usuário.
@@ -52,7 +54,9 @@ Projeto desenvolvido no curso do framework Laravel, da plataforma Alura.
   <img alt="Class-website" title="#Class-website" src="./github-assets/imagem7.png" width="350px">
   
   <img alt="Class-website" title="#Class-website" src="./github-assets/imagem8.png" width="350px">
-
+  
+  <img alt="Class-website" title="#Class-website" src="./github-assets/imagem9.png" width="350px">
+  
   
 </p>
 
