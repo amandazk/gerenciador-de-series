@@ -52,7 +52,9 @@ Projeto desenvolvido no curso do framework Laravel, da plataforma Alura.
   <img alt="Class-website" title="#Class-website" src="./github-assets/imagem7.png" width="350px">
   
   <img alt="Class-website" title="#Class-website" src="./github-assets/imagem8.png" width="350px">
-
+  
+  <img alt="Class-website" title="#Class-website" src="./github-assets/imagem9.png" width="350px">
+  
   
 </p>
 
