@@ -35,7 +35,7 @@ Na aba Entrar (/entrar):
 Projeto desenvolvido no curso do framework Laravel, da plataforma Alura.
 
 
-### Web
+### Imagens do projeto:
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
 	
